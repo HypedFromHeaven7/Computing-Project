@@ -1,0 +1,17 @@
+You can use the is function to find out if two variables are connected.
+Copying doesn't break the connection between variables, you can use deep copy to truely copy variables.
+(from copy import deep copy)
+
+You can import your own modules, and use your own functions, you can then reload your modules to update changes.
+(from importlib import reload)
+
+Can use 'import * ' to import the specific function defined in the (__all__) section at the bottom of the code.
+Must have the actual function names in __all__
+
+Adding global to a variable reassigns the actual value of the variable inside a function, meaning changes in
+variable x due to a function process are seen globally.
+
+You can describe as a function using a for loop and yielding instead of returning, this saves the function's 
+output as a list, that you can access with a for loop.
+
+
