@@ -32,3 +32,12 @@ object = class(x=3, g=[3,2])
 ##################################################################################################
 The __doc__ attribute of a class describes the documentation of the class. Common convention is to 
 not actually use the __doc__ command and to just write the documentation at the start of the class.
+
+
+###################################################################################################
+############################################ repr/str #############################################
+###################################################################################################
+The __repr__ definition sets how the object identifies when called by repr() - command line execute.
+Where as __str__ definition sets how the objects is viewed when called by str() - print() output.
+Not defining the str output results in repr turning into the default output.
+

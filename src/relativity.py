@@ -15,32 +15,16 @@ class FourVector:
             self.r = np.array([0,0,0])
         else:
             self.r = np.array(r)
+    
+    def __repr__(self):
+        return f"FourVector(ct={self.ct}, r={self.r})"
+    
+    def __str__(self):
+        return f"{self.ct} {self.r}"
 
 P0 = FourVector()
 P2 = FourVector(ct=99.9, r=[1, 2, 3])
 
-
-print(f"Initially we define P0 as {P0.ct} {P0.r}")
-print(f"After modifications we set P2 as {P2.ct} {P2.r}")
-
-import numpy as np
-
-class FourVector:
-    """
-    A class to represent spacetime four-vectors in special relativity.
-    
-    Attributes:
-        ct (float): Time-like component (speed of light multiplied by time).
-        r (ndarray): Space-like components as a NumPy array.
-    """
-    
-    def __init__(self, ct=0, r=None):
-        self.ct = ct
-        self.r = np.array(r if r is not None else [0, 0, 0], dtype=float)
-
-# Test the class
-P0 = FourVector()  # Default initialization
-P2 = FourVector(ct=99.9, r=[1, 2, 3])
-
-print(P0.ct, P0.r)  # Output: 0 [0. 0. 0.]
-print(P2.ct, P2.r)  # Output: 99.9 [1. 2. 3.]
+print("")
+print(f"Initially we define P0 as ({P0})\nAfter modifications we set P2 as ({P2})")
+print("")
