@@ -17,6 +17,12 @@ class Counter:
 
         self.i -= 1
         self.k -= 1
+    
+    def __repr__(self):
+        return f"(i = {self.i} , k = {self.k})"
+    
+    def __str__(self):
+        return f"{self.i} {self.k}"
 
 
 
@@ -38,4 +44,5 @@ print(f"Using the 'addone' statement we can add to the class object c, to get {c
 print(f"and with 'minone' we can minus from object d to get, {d.i} and {d.k}.")
 print("######################################################################################")
 print("######################################################################################")
+print(f"Using str and repr we can formate how we want a print state of the object to look like \n i.e. print(repr(c))={repr(c)} \n and print(d)={d}  --default is (str)")
 print("######################################################################################")

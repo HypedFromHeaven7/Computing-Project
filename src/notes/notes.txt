@@ -14,4 +14,4 @@ variable x due to a function process are seen globally.
 You can describe as a function using a for loop and yielding instead of returning, this saves the function's 
 output as a list, that you can access with a for loop.
 
-
+common courtesy to use print("Hello\nWorld"), where \n skips a line
