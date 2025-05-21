@@ -19,12 +19,14 @@ variables of the same object.
 The __init__ statement of the class initialises - sets the initial conditions of the object. While
 adding variables specify the initial conditions.
 
-def __init__(self, x=0, g=None)
+def __init__(self, x = 0.0, g = None)
 
-This means, we're setting the object properties when the variable, x, and the list, g, aren't given. 
-When we set an object and we want to set these variables we can:
+This means, we're setting the object properties when the variable, x, and the list, g, aren't 
+given. We should note the use of 0.0, we're defining the input of x to be a float by using the 
+point. If we wanted x to be an integer we'd use x = 0. When we set an object and we want to set 
+these variables we can:
 
-object = class(x=3, g=[3,2])
+object = class(x = 3.2, g = [3,2])
 
 
 ##################################################################################################
