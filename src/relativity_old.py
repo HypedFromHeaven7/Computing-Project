@@ -9,12 +9,12 @@ class FourVector:
         r (ndarray): Space component, given by a numpy array
     """
 
-    def __init__(self, _ct = 0.0, _r = None):
-        self.ct = _ct
-        if _r == None:
+    def __init__(self, ct = 0.0, r = None):
+        self.ct = ct
+        if r == None:
             self.r = np.array([0,0,0])
         else:
-            self.r = np.array(_r)
+            self.r = np.array(r)
     
     def __repr__(self):
         formattedlist = ", ".join(map(str, self.r))
@@ -25,7 +25,7 @@ class FourVector:
         return f'({self.ct}, {formattedlist})'
 
 P0 = FourVector()
-P2 = FourVector(_ct = 99.9, _r=[1.0, 2.0, 3.0])
+P2 = FourVector(ct = 99.9, r=[1.0, 2.0, 3.0])
 
 print("")
 print(f"Initially we define P0 as {P0}\nAfter modifications we set P2 as {repr(P2)}")

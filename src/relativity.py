@@ -10,23 +10,44 @@ class FourVector:
     """
 
     def __init__(self, ct = 0.0, r = None):
-        self.ct = ct
+        self.__ct = ct
         if r == None:
-            self.r = np.array([0,0,0])
+            self.__r = np.array([0,0,0])
         else:
-            self.r = np.array(r)
+            self.__r = np.array(r)
+
+    # Access Methods:
+    def ct(self):
+        return self.__ct
     
+    def r(self):
+        return self.__r
+
+    # Modifier Methods 
+    def setct(self, new_ct):
+        self.__ct = new_ct
+
+    def setr(self, new_r):
+        self.__r = np.array(new_r)
+
+    # Output format
     def __repr__(self):
-        formattedlist = ", ".join(map(str, self.r))
-        return f"FourVector(ct={self.ct}, r=array([{formattedlist}]))"
+        formattedlist = ", ".join(map(str, self.__r))
+        return f"FourVector(ct={self.__ct}, r=array([{formattedlist}]))"
     
     def __str__(self):
-        formattedlist = ", ".join(map(str, self.r))
-        return f'({self.ct}, {formattedlist})'
+        formattedlist = ", ".join(map(str, self.__r))
+        return f'({self.__ct}, {formattedlist})'
 
 P0 = FourVector()
-P2 = FourVector(ct = 99.9, r=[1.0, 2.0, 3.0])
+P2 = FourVector()
+P2.setct(99.9)
+P2.setr([1,2,3])
+P3 = FourVector(ct=100.3, r=[3,4,5])
 
+print("###~~~###~~~###~~~")
+print(P2.ct())
 print("")
 print(f"Initially we define P0 as {P0}\nAfter modifications we set P2 as {repr(P2)}")
 print("")
+print(P3)
