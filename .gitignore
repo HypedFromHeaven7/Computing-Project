@@ -9,6 +9,8 @@ __pycache__/
 # Unnessacery folders
 /.vscode
 # \/.github
+lorentz.pdf
+physics105.pdf
 
 # Needless files:
 setup_workspace.py
