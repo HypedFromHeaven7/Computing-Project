@@ -8,7 +8,7 @@ __pycache__/
 
 # Unnessacery folders
 /.vscode
-/.github
+# \/.github
 
 # Needless files:
 setup_workspace.py
