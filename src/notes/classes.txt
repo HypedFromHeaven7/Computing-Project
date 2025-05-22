@@ -49,5 +49,13 @@ Not defining the str output results in repr turning into the default output.
 ######################################### Access Methods ##########################################
 ###################################################################################################
 Methods to access attribute, the fact that it's a method means using brackets after calling the
-attribute of the object. However can use @property
+attribute of the object. However can use @property to turn the method into a property, make it so
+that you don't need to use brackets.
 
+
+
+###################################################################################################
+########################################### Arithmetic ############################################
+###################################################################################################
+Using __add__ and __sub__ can describe how objects are added, __iadd__ and __isub__ describe how
++= and -= work.

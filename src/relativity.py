@@ -14,12 +14,14 @@ class FourVector:
         if r is None:
             self.__r = np.array([0,0,0])
 
-        elif isinstance(r, np.ndarray):  
-             self.__r = r
-            
         else:
-            self.__r = np.array(r)
-
+            array = np.array(r)
+            
+            if len(array) != 3:
+                raise Exception("FourVector parameter r has incorrect size")
+            
+            else:
+                self.__r = array
     # Access Methods:
     def ct(self):
         return self.__ct
@@ -66,6 +68,17 @@ class FourVector:
         vim = self.__ct * self.__ct
         tim = np.inner(self.__r, self.__r)
         return vim -tim
+    
+    # Pure Boost Lorentz Transform
+    def boost(self, beta):
+        gamma = 1/np.sqrt(1 - beta**2)
+        vect4 = np.append(self.__ct, self.__r)
+        boostvec = np.array([[gamma, 0, 0, gamma * beta],
+                             [0, 1, 0, 0],
+                             [0, 0, 1, 0],
+                             [gamma * beta, 0, 0, gamma]])
+        transform = boostvec.dot(vect4)
+        return FourVector(ct=transform[0], r=transform[1:])
 
     # Output format
     def __repr__(self):
@@ -78,17 +91,21 @@ class FourVector:
 
 P0 = FourVector()
 P2 = FourVector()
-P2.setct(99.9)
+P2.setct(99.0)
 P2.setr([1,2,3])
 P3 = FourVector(ct=100.3, r=[3,4,5])
 P4 = P3.copy()
 P4.setct(99.3)
 P4 += P3
 P5 = P4.inner(P3)
+P20 = P2.boost(0.4)
+
 
 print("###~~~###~~~###~~~")
-print(P2.ct())
+print(f"before the boost we have P2 = {P2} with magnitude {P2.magsquare()}\nafter the boost we have P2 = {P20} with magnitude {P20.magsquare()}")
 print("")
 print(f"Initially we define P0 as {P0}\nAfter modifications we set P2 as {repr(P2)}")
 print("")
 print(P3,P4,P5)
+
+# P6 = FourVector(ct=3, r=[3,4])

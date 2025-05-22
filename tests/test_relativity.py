@@ -228,9 +228,9 @@ class TestTask19:
         assert "boost" in fv_namespace, "Missing boost method."
 
     def test_magsquare(self, rel):
-        fv1 = rel.FourVector(ct=99, r=[1.0, 2.0, 3.0])
+        fv1 = rel.FourVector(ct=99.0, r=[1.0, 2.0, 3.0])
         assert fv1.magsquare() == 9787.0
-        fv2 = fv1.boost(0.5)
+        fv2 = fv1.boost(0.4)
         assert np.isclose(fv2.magsquare(), 9787.0)
 
 class TestTask20:
