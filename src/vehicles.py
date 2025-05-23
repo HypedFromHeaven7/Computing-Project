@@ -18,7 +18,7 @@ class Engine:
             raise Exception("Incorrect fuel source")
         
     def start(self):
-        return f"{self.type} engine starting..." 
+        print(f"{self.type} engine starting...")
 
 
 class Transmission:
@@ -48,8 +48,8 @@ class Transmission:
         if self._type != "manual":
             raise Exception("Cannot manually shift gears")
         
-        if self._gear - 1 >= self.gmax:
-            raise Exception("Already at highest gear")
+        if self._gear >= self.gmax:
+            pass
         
         else:
             self._gear += 1
@@ -59,7 +59,7 @@ class Transmission:
             raise Exception("Cannot manually shift gears")
 
         if self._gear == 0:
-            raise Exception("Already at lowest gear")
+            pass
         
         else:
             self._gear -= 1
@@ -74,8 +74,11 @@ class Car:
     petrol/diesel engine
     """
     def __init__(self, engine, transmission):
-        self.engine = engine
-        self.transmission = transmission
+        if isinstance(engine, Engine) == True and isinstance(transmission, Transmission) == True:
+            self.engine = engine
+            self.transmission = transmission
+        else:
+            raise Exception("Incorrect inputs")
 
     def shift_up(self):
         return self.transmission.shift_up()
@@ -84,7 +87,7 @@ class Car:
         return self.transmission.shift_down()
         
     def start(self):
-        if self.transmission.gear() != 0:
+        if self.transmission.type() == "manual" and self.transmission.gear() != 0:
             raise Exception("It is unsafe to start the car while in gear")
         
         self.engine.start()
@@ -97,7 +100,5 @@ engine = Engine("petrol")
 engine.start()
 print(engine.start())
 cart = Car(engine=engine, transmission=trn)
-# cart.shift_up()
-# print(cart.transmission.gear())
-cart.start()
 
+cart.start()
