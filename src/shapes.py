@@ -17,14 +17,11 @@ class Shape:
 
 
     def set(self, new_col):
-        if self.__colour == "Red" and new_col != "Red":
+        if self.__colour == "Red":
             Shape.num_red -= 1
 
-        elif self.__colour != "Red" and new_col == "Red":
+        if new_col == "Red":
             Shape.num_red += 1
-
-        else:
-            pass
 
         self.__colour = new_col
         return self
@@ -39,15 +36,32 @@ class Rectangle(Shape):
     Inputs:
     side a length.
     side b length.
+    colour.
     """
 
-    def __init__(self, a=1.0, b=1.0):
+    def __init__(self, a=1.0, b=1.0, colour="Blue"):
+        Shape.__init__(self,colour=colour)
         self.width = a
         self.length = b
 
     def area(self):
         return self.width * self.length
     
+class Square(Rectangle):
+    """
+    A subsubclass shape.
+    
+    Inputs:
+    side length.
+    colour.
+    """
+
+    def __init__(self, a=1, colour="Blue"):
+        Rectangle.__init__(self, a=a, b=a, colour=colour)
+
+
+
+
 class Triangle(Shape):
     """
     A subclass shape.
@@ -55,15 +69,34 @@ class Triangle(Shape):
     Inputs:
     side a length.
     side b length.
+    colour.
     """
 
-    def __init__(self, a=1.0, b=1.0):
+    def __init__(self, a=1.0, b=1.0, colour="Blue"):
+        Shape.__init__(self, colour=colour)
         self.base = a
         self.height = b
 
     def area(self):
         sq = self.base * self.height
         return sq/2
+
+class EquilateralTriangle(Triangle):
+    """
+    A subsubclass shape.
+    
+    Inputs:
+    side length.
+    colour.
+    """
+
+    def __init__(self, a=1.0, colour="Blue"):
+        height = a * np.sqrt(3)/2 
+        Triangle.__init__(self, a=a, b=height, colour=colour)
+
+
+
+    
 
 class Ellipse(Shape):
     """
@@ -74,7 +107,8 @@ class Ellipse(Shape):
     side b length.
     """
 
-    def __init__(self, a=1.0, b=1.0):
+    def __init__(self, a=1.0, b=1.0, colour="Blue"):
+        Shape.__init__(self, colour=colour)
         self.majr = a
         self.minr = b
 
@@ -83,15 +117,30 @@ class Ellipse(Shape):
         return arp * np.pi
 
 
+class Circle(Ellipse):
+    """
+    A subsubclass Shape:
+    
+    Inputs:
+    radius.
+    colour.
+    """
+
+    def __init__(self, a=1, colour="Blue"):
+        Ellipse.__init__(self, a=a, b=a, colour=colour)
+
 def redfunc(obj):
     if isinstance(obj, Shape) == True:
         obj.set("Red")
     
     return obj
 
+
+
 s = Rectangle(3., 4.)
-s.set("yellow")
-g = Shape()
-f = Ellipse()
-redfunc(4)
-print(s.noshape)
+# s.set("Red")
+print(Shape.num_red)
+# g = Shape()
+# f = Ellipse()
+# redfunc(4)
+# print(s.noshape)
