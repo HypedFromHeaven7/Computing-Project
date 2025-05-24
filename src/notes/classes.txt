@@ -58,4 +58,8 @@ that you don't need to use brackets.
 ########################################### Arithmetic ############################################
 ###################################################################################################
 Using __add__ and __sub__ can describe how objects are added, __iadd__ and __isub__ describe how
-+= and -= work.
++= and -= work. Similarly we can look at https://docs.python.org/3/library/operator.html to define 
+how objects of a class interact with each other.
+
+
+
