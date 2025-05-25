@@ -134,13 +134,3 @@ def redfunc(obj):
         obj.set("Red")
     
     return obj
-
-
-
-s = Rectangle(3., 4.)
-# s.set("Red")
-print(Shape.num_red)
-# g = Shape()
-# f = Ellipse()
-# redfunc(4)
-# print(s.noshape)
