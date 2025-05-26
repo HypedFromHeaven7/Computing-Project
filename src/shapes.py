@@ -56,8 +56,8 @@ class Square(Rectangle):
     colour.
     """
 
-    def __init__(self, a=1, colour="Blue"):
-        Rectangle.__init__(self, a=a, b=a, colour=colour)
+    def __init__(self, side_length=1, colour="Blue"):
+        Rectangle.__init__(self, a=side_length, b=side_length, colour=colour)
 
 
 
@@ -90,9 +90,9 @@ class EquilateralTriangle(Triangle):
     colour.
     """
 
-    def __init__(self, a=1.0, colour="Blue"):
-        height = a * np.sqrt(3)/2 
-        Triangle.__init__(self, a=a, b=height, colour=colour)
+    def __init__(self, side_length=1.0, colour="Blue"):
+        height = side_length * np.sqrt(3)/2 
+        Triangle.__init__(self, a=side_length, b=height, colour=colour)
 
 
 
